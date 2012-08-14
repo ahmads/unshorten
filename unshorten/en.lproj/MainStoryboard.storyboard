@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
+    <dependencies>
+        <deployment defaultVersion="1296" identifier="iOS"/>
+        <development defaultVersion="4200" identifier="xcode"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="5">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+                <viewController id="2" customClass="ASViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="tiny.pl/htk" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" id="5eU-AA-foW">
+                                <rect key="frame" x="20" y="46" width="280" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="2" id="Tcp-sC-pAN"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5fD-7K-5ar">
+                                <rect key="frame" x="37" y="153" width="246" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.098039217293262482" green="0.098039217293262482" blue="0.098039217293262482" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="unshorten" backgroundImage="button.png">
+                                    <color key="titleColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="unshorten" destination="2" eventType="touchUpInside" id="okr-eK-t9S"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="mainView" destination="3" id="kGy-5c-8q5"/>
+                        <outlet property="shortURLField" destination="5eU-AA-foW" id="fkR-qD-7Dz"/>
+                        <segue destination="2wp-Ld-pqD" kind="modal" identifier="viewFullURLSegue" modalTransitionStyle="flipHorizontal" id="eNt-cf-mMp"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="66" y="85"/>
+        </scene>
+        <!--Result View Controller-->
+        <scene sceneID="x3R-B0-qR7">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aCo-nM-Uno" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="2wp-Ld-pqD" customClass="ASResultViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="baZ-g6-g3n">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" momentary="YES" id="9bx-NV-kc3">
+                                <rect key="frame" x="20" y="188" width="280" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Copy"/>
+                                    <segment title="Open"/>
+                                    <segment title="Back"/>
+                                </segments>
+                                <connections>
+                                    <action selector="resultViewButtons:" destination="2wp-Ld-pqD" eventType="valueChanged" id="wy2-N6-d2J"/>
+                                </connections>
+                            </segmentedControl>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" id="B9f-c2-MBM">
+                                <rect key="frame" x="40" y="286" width="240" height="144"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.011764707043766975" green="0.0" blue="0.0" alpha="0.10000000000000001" colorSpace="deviceRGB"/>
+                                <string key="text"> Unshorten by:
+ Ahmad Salman
+ www.as.sa
+
+ Powered by:
+ www.untiny.me</string>
+                                <color key="textColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" id="oaR-QC-fbI">
+                                <rect key="frame" x="20" y="25" width="280" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.98823535442352295" blue="0.98823535442352295" alpha="0.20000000000000001" colorSpace="deviceRGB"/>
+                                <color key="textColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="fullURLField" destination="oaR-QC-fbI" id="5gW-wD-y5j"/>
+                        <outlet property="resultView" destination="baZ-g6-g3n" id="S7V-dO-AF1"/>
+                        <segue destination="2" kind="modal" identifier="backToMainViewSegue" modalTransitionStyle="flipHorizontal" id="abq-9D-Zrc"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="548" y="85"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="button.png" width="246" height="58"/>
+    </resources>
+    <classes>
+        <class className="ASResultViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ASResultViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="resultViewButtons:"/>
+                <relationship kind="outlet" name="fullURLField" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="resultView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="ASViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ASViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="unshorten"/>
+                <relationship kind="outlet" name="mainView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="shortURLField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>
